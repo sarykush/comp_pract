@@ -26,6 +26,9 @@ struct plane {
     double b;
     double c;
     double d;
+    double x;
+    double y;
+    double z;
 };
 
 struct line {
@@ -89,7 +92,7 @@ int main()
     else cout << "прямая НЕ пересекает параболоид"<<endl;
     
     //пересекает ли плоскость
-    z3=(pl1.x*pl1.x)/(2.0*p1.p)+(pl1.y*pl1.y)/(2.0*p1.q);
+    double z3=(pl1.x*pl1.x)/(2.0*p1.p)+(pl1.y*pl1.y)/(2.0*p1.q);
     if (z3==pl1.z) cout << "плоскость пересекает параболоид"<<endl;
     else cout << "плоскость не пересекает параболоид"<<endl;
     
