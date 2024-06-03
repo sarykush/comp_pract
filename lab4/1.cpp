@@ -3,6 +3,7 @@
 #include <limits>
 using namespace std;
 
+//функция печати для матриц
 void print_matr(double **matr){
     int dim=4;
     for (int i=0;i<dim;i++){
@@ -15,6 +16,7 @@ void print_matr(double **matr){
     cout<<"\n";
 }
 
+//функция печати для векторов
 void print_vect(double *v){
     int dim=4;
     for (int i=0;i<dim;i++){
@@ -64,6 +66,7 @@ double det(double **matr, int n)
     return temp;
 }
 
+//транспонирование матрицы
 void transp(double **matr, double **tMatr, int n){//
     for (int i = 0; i < n; i++) 
         for (int j = 0; j < n; j++)
@@ -71,6 +74,7 @@ void transp(double **matr, double **tMatr, int n){//
 
 }
 
+//матрица на матрицу = матрица
 double** mul_matr(double**matr, double**matr1){
     int dim=4;
     for (int i=0; i<dim; i++){
@@ -128,8 +132,7 @@ double* gauss_1(double** matr, double*v){
     return xx;
 }
 
-
-
+//обратная матрица
 double**obrmatr(double **matr)
 {
     int n=4;
