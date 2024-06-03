@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cmath>
 #include <limits>
-typedef std::numeric_limits< double > dbl;
 using namespace std;
 
 void print_matr(double **matr){
