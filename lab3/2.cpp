@@ -40,26 +40,25 @@ double rectangleEps(double eps){
 }
 
 double trapMethod(double a, double n, double h) {
-    double inf = numeric_limits<float>::infinity(); 
-    double sum = 0;
-    double start = 0.5*(f(a)+f(inf));
+    double sum = 0.5*(f(a)+f(h*n));
     for(int i = 0; i < n; i++) {
-        sum += f(start + i*h);
+        sum += f(sum + i*h);
     }
 
-    return sum * h;
+    return sum*h;
+
 }
 
 double trapEps(double eps){
     double a=0, n=1000, h=5;
-    double i1 = rectangleMethod(a, n, h);
+    double i1 = trapMethod(a, n, h);
     n*=2;
-    double i2 = rectangleMethod(a, n, h);
+    double i2 = trapMethod(a, n, h);
     while (abs(i1-i2)>eps){
         n*=2;
-        double i1 = rectangleMethod(a, n, h);
+        double i1 = trapMethod(a, n, h);
         n*=2;
-        double i2 = rectangleMethod(a, n, h);
+        double i2 = trapMethod(a, n, h);
     }
     return i2;
 }
@@ -79,14 +78,14 @@ double SimpsonMethod(double a, double n, double h) {
 
 double SimpsonEps(double eps){
     double a=0, n=1000, h=5;
-    double i1 = rectangleMethod(a, n, h);
+    double i1 = SimpsonMethod(a, n, h);
     n*=2;
-    double i2 = rectangleMethod(a, n, h);
+    double i2 = SimpsonMethod(a, n, h);
     while (abs(i1-i2)>eps){
         n*=2;
-        double i1 = rectangleMethod(a, n, h);
+        double i1 = SimpsonMethod(a, n, h);
         n*=2;
-        double i2 = rectangleMethod(a, n, h);
+        double i2 = SimpsonMethod(a, n, h);
     }
     return i2;
 }
